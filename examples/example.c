@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-__attribute__((weak)) void uninstall_me(int arc, char *argv[]);
+__attribute__((weak)) void uninstall_me(int arc, char *argv[],
+                                        char *uninstall_files[], int size);
 
 // To compile either of the following work:
 //
@@ -10,8 +11,11 @@ __attribute__((weak)) void uninstall_me(int arc, char *argv[]);
 // inplementation of using uninstall code
 
 int main(int argc, char *argv[]) {
-  if (uninstall_me) {
-    uninstall_me(argc, argv);
+  if (uninstall_me) {            // Only works when ran as root
+    char *files[] = {"example"}; // 2d array of all files to be removed
+    // pass argc, argv, file(files to be removed), size(number of files to be
+    // removed)
+    uninstall_me(argc, argv, files, 1);
   } else {
     printf("running without uninstall()\n");
   }

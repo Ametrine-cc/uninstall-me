@@ -1,3 +1,4 @@
 example
 compile.sh
 libuninstallmelib.a
+src/uninstall-me.o

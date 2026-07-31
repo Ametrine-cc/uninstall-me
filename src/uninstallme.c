@@ -40,6 +40,7 @@ void uninstall_me(int argc, char *argv[], char *uninstall_files[], int size) {
     if (strcmp(argv[i], "--uninstall") == 0) {
       if (geteuid() != 0) {
         printf("--uninstall needs to be run as root please use sudo/doas\n");
+        exit(1);
       } else {
         // printf("found!\n");
         uninstall(uninstall_files, size);

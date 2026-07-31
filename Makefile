@@ -7,8 +7,8 @@ ARFLAGS   := rcs
 
 # --- Source Layout ---
 LIB_SRC       := src
-LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c
-LIB_OBJ       := $(LIB_SRC)/uninstall-me.o
+LIB_SRC_FILES := $(LIB_SRC)/uninstallme.c
+LIB_OBJ       := $(LIB_SRC)/uninstallme.o
 LIB_OUT       := libuninstallmelib.a
 
 # LICENSE := LICENSE

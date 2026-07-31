@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // Must include to use the uninstall_me library
-__attribute__((weak)) void uninstall_me(int arc, char *argv[],
+__attribute__((weak)) void uninstall_me(int argc, char *argv[],
                                         char *uninstall_files[], int size);
 
 // To compile either of the following work:

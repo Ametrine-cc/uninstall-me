@@ -5,7 +5,7 @@
 #define MAX_BUFFER_SIZE 2048
 char process_name_buffer[MAX_BUFFER_SIZE];
 
-const char *process_name() {
+const char *get_process_name() {
   FILE *processfilePtr;
 
   processfilePtr = fopen("/proc/self/comm", "r");
@@ -23,7 +23,7 @@ const char *process_name() {
 }
 
 void uninstall(char *uninstall_files[], int size) {
-  printf("Uninstalling %s\n", process_name());
+  printf("Uninstalling %s\n", get_process_name());
 
   for (int i = 0; i < size; i++) {
     printf("%s\n", uninstall_files[i]);

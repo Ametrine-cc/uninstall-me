@@ -1,4 +1,4 @@
 example
 compile.sh
-libuninstallmelib.a
+libuninstall-melib.a
 src/uninstall-me.o

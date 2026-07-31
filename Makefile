@@ -9,7 +9,7 @@ ARFLAGS   := rcs
 LIB_SRC       := src
 LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c
 LIB_OBJ       := $(LIB_SRC)/uninstall-me.o
-LIB_OUT       := libuninstallmelib.a
+LIB_OUT       := libuninstall-melib.a
 
 # LICENSE := LICENSE
 

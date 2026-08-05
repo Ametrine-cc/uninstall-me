@@ -3,13 +3,13 @@
 CXX       := clang
 CXXFLAGS  := -Wall -Wextra -O2
 AR        := ar
-ARFLAGS   := rcs 
+ARFLAGS   := rcs
 
 # --- Source Layout ---
 LIB_SRC       := src
-LIB_SRC_FILES := $(LIB_SRC)/uninstallme.c
-LIB_OBJ       := $(LIB_SRC)/uninstallme.o
-LIB_OUT       := libuninstallmelib.a
+LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c
+LIB_OBJ       := $(LIB_SRC)/uninstall-me.o
+LIB_OUT       := libuninstall-melib.a
 
 # LICENSE := LICENSE
 
@@ -33,7 +33,7 @@ $(LIB_OUT): $(LIB_OBJ)
 # --- Install ---
 install: all
 	install -Dm644 $(LIB_OUT)    $(DESTDIR)$(LIB_DIR)/$(LIB_OUT)
-	
+
 # --- Uninstall ---
 uninstall: all
 	rm -r $(DESTDIR)$(LIB_DIR)/$(LIB_OUT)

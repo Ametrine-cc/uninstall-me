@@ -112,4 +112,4 @@ Thank you for helping to make `uninstall-me` better!
 
 ### License
 
-This project is licensed under the `GNU General Public License v3.0` - see the [LICENSE](https://github.com/Ametrine-cc/kazmai/blob/master/LICENSE) file for details.
+This project is licensed under the `GNU General Public License v3.0` - see the [LICENSE](https://github.com/Ametrine-cc/uninstall-me/blob/master/LICENSE) file for details.

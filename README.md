@@ -1,3 +1,5 @@
+# Updates to uninstall-me coming soon, the master branch is the original source, development branch will have the latest code until merged into master
+
 # uninstall-me
 
 Making uninstallation easy for everyone.

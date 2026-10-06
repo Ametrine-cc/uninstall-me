@@ -1,25 +1,27 @@
-// uninstall-me: uninstalling apps with --uninstall made easy
-// Copyright (C) 2026 Ametine Foundation
+/*
+ * uninstall-me: uninstalling apps with --uninstall made easy
+ * Copyright (C) 2026 Ametine Foundation
 
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
 
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
 
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+*/
 
+#include "uninstall-me.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
-#define MAX_BUFFER_SIZE 2048
 char process_name_buffer[MAX_BUFFER_SIZE];
 
 const char *get_process_name() {
@@ -30,6 +32,7 @@ const char *get_process_name() {
   if (processfilePtr != NULL) {
     fgets(process_name_buffer, MAX_BUFFER_SIZE, processfilePtr);
   } else {
+    printf("error");
   }
 
   fclose(processfilePtr);
@@ -47,6 +50,8 @@ void uninstall(char *uninstall_files[], int size) {
     remove(uninstall_files[i]);
   }
 
+  open_file("example.txt");
+
   return;
 }
 
@@ -58,7 +63,6 @@ void uninstall_me(int argc, char *argv[], char *uninstall_files[], int size) {
         printf("--uninstall needs to be run as root please use sudo/doas\n");
         exit(1);
       } else {
-        // printf("found!\n");
         uninstall(uninstall_files, size);
       }
     } else {

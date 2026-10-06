@@ -1,0 +1,32 @@
+[package]
+name = "uninstall-me"
+version = "0.1.0"
+edition = "2024"
+
+authors = [
+    "Noticxs <noticxs@ametrine.cc>",
+    "Ametrine Foundation <business@ametrine.cc>"
+]
+
+description = ""
+license = "LGPL-3.0"
+
+repository = "https://github.com/Ametrine-cc/uninstall-me"
+readme = "README.md"
+
+include = [
+    "src/**/*",
+    "Makefile",
+    "build.rs",
+    "bindings/**/*",
+    "README.md",
+    "LICENSE",
+    "COPYING.LESSER"
+]
+
+[lib]
+path = "bindings/uninstall-me.rs"
+
+[build-dependencies]
+bindgen = "0.70.1"
+cc = "1.0"

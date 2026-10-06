@@ -47,8 +47,9 @@ LIB_SRC       := src
 OBJ_DIR       := obj
 BUILD_DIR     := build
 
-LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c \
-                 $(LIB_SRC)/open.c
+LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c
+# LIB_SRC_FILES := $(LIB_SRC)/uninstall-me.c \
+                 # $(LIB_SRC)/open.c
 
 # --- Output File Names & Relative Paths ---
 LIB_NAME      := libuninstall-me

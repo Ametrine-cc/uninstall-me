@@ -7,7 +7,7 @@ fn main() {
 
     cc::Build::new()
         .file("src/uninstall-me.c")
-        .file("src/open.c")
+        // .file("src/open.c")
         .include("src/include")
         .out_dir(&out_dir)
         .compile("uninstall-me");
@@ -21,6 +21,8 @@ fn main() {
     println!("cargo:rerun-if-changed=src/include/uninstall-me.h");
 
     let bindings = bindgen::Builder::default()
+        .blocklist_item("malloc")
+        .blocklist_item("realloc")
         .header("src/include/uninstall-me.h")
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .default_enum_style(bindgen::EnumVariation::Rust {

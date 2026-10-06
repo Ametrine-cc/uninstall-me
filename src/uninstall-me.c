@@ -16,7 +16,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "uninstall-me.h"
+#include "include/uninstall-me.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,7 +24,7 @@
 
 char process_name_buffer[MAX_BUFFER_SIZE];
 
-const char *get_process_name() {
+char *get_process_name() {
   FILE *processfilePtr;
 
   processfilePtr = fopen("/proc/self/comm", "r");
@@ -50,23 +50,25 @@ void uninstall(char *uninstall_files[], int size) {
     remove(uninstall_files[i]);
   }
 
-  open_file("example.txt");
-
   return;
 }
 
-void uninstall_me(int argc, char *argv[], char *uninstall_files[], int size) {
+int uninstall_me(const char *uninstall_files[], size_t length) {
+  // for (int i = 0; i < argc; i++) {
+  // if (strcmp(argv[i], "--uninstall") == 0) {
+  // if (geteuid() != 0) {
+  // printf("--uninstall needs to be run as root please use sudo/doas\n");
+  // exit(1);
+  // } else {
+  // uninstall(uninstall_files, size);
+  // }
+  // } else {
+  // continue;
+  // }
 
-  for (int i = 0; i < argc; i++) {
-    if (strcmp(argv[i], "--uninstall") == 0) {
-      if (geteuid() != 0) {
-        printf("--uninstall needs to be run as root please use sudo/doas\n");
-        exit(1);
-      } else {
-        uninstall(uninstall_files, size);
-      }
-    } else {
-      continue;
-    }
+  for (size_t i = 0; i < length; i++) {
+    printf("%s\n", uninstall_files[i]);
   }
+
+  return 0;
 }

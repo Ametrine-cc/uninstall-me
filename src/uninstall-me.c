@@ -17,6 +17,7 @@
 */
 
 #include "include/uninstall-me.h"
+#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -42,33 +43,18 @@ char *get_process_name() {
   return process_name_buffer;
 }
 
-void uninstall(char *uninstall_files[], int size) {
-  printf("Uninstalling %s\n", get_process_name());
-
-  for (int i = 0; i < size; i++) {
-    printf("%s\n", uninstall_files[i]);
-    remove(uninstall_files[i]);
+void uninstall_me(const char *uninstall_file) {
+  if (geteuid() != 0) {
+    printf("--uninstall needs to be run as root please use sudo/doas\n");
+    exit(1);
+  } else {
+    printf("Running as root, uninstalling %s", get_process_name());
+    printf("%s", uninstall_file);
   }
-
-  return;
 }
 
-int uninstall_me(const char *uninstall_files[], size_t length) {
-  // for (int i = 0; i < argc; i++) {
-  // if (strcmp(argv[i], "--uninstall") == 0) {
-  // if (geteuid() != 0) {
-  // printf("--uninstall needs to be run as root please use sudo/doas\n");
-  // exit(1);
-  // } else {
-  // uninstall(uninstall_files, size);
-  // }
-  // } else {
-  // continue;
-  // }
-
-  for (size_t i = 0; i < length; i++) {
-    printf("%s\n", uninstall_files[i]);
+void uninstall_them(const char *uninstall_file[], size_t size) {
+  for (size_t i = 0; i < size; i++) {
+    printf("file: %s", uninstall_file[i]);
   }
-
-  return 0;
 }

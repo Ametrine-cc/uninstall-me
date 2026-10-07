@@ -19,12 +19,15 @@
 #ifndef UNINSTALL_ME_H
 #define UNINSTALL_ME_H
 
+#include <stddef.h>
 #include <stdlib.h>
 
 // Defined buffer size
 #define MAX_BUFFER_SIZE 2048
 
-int uninstall_me(const char *uninstall_files[], size_t length);
+void uninstall_me(const char *uninstall_file);
+void uninstall_them(const char *uninstall_file[], size_t size);
+
 char *get_process_name();
 // int open_file(const char *file_name);
 

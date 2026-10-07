@@ -69,12 +69,18 @@ EXAMPLE_FILE   := $(TEST_SRC)/c_test.c
 C_TEST       := c_example
 
 # --- Targets ---
-.PHONY: all static dynamic install uninstall c-test rust-test rust-build clean
+.PHONY: all static dynamic rust-build c-test rust-test-all rust-test-basic rust-test-multiple install uninstall clean
 
 all: static dynamic rust-build
 
-rust-test: $(STATIC_OUT)
+rust-test-all: $(STATIC_OUT)
 	$(CARGO) test -- --nocapture
+
+rust-test-basic: $(STATIC_OUT)
+	$(CARGO) test -- basic --nocapture
+
+rust-test-multiple: $(STATIC_OUT)
+	$(CARGO) test -- multiple --nocapture
 
 rust-build: $(STATIC_OUT)
 	$(CARGO) build --release

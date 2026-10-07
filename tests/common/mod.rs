@@ -1,6 +1,5 @@
-use uninstall_me::*;
+// use uninstall_me::*;
 
 pub fn setup() {
-    println!("Example for using the uninstall-me library");
-    println!("Process name: {}", get_process_name());
+    println!("These are some examples for using the uninstall-me library");
 }

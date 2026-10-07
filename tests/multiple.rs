@@ -21,14 +21,15 @@ use uninstall_me::*;
 mod common;
 
 #[test]
-fn basic() {
+fn multiple() {
     common::setup();
 
     // Getting the process name
     println!("Printing the current process name");
     println!("process_name: {}", get_process_name());
 
-    // Pass one file into uninstall_me() directly
-    println!("Passing uninstall file into uninstall_me()");
-    uninstall_me("example.txt".to_string());
+    // Pass files to be uninstalled into uninstall_them()
+    // instead of one file into uninstall_me()
+    let uninstall_files: Vec<String> = vec![String::from("example.txt")];
+    uninstall_them(&uninstall_files);
 }

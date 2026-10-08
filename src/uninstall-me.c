@@ -17,6 +17,7 @@
 */
 
 #include "include/uninstall-me.h"
+#include "local.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,14 +44,29 @@ char *get_process_name() {
   return process_name_buffer;
 }
 
-void uninstall_me(const char *uninstall_file) {
+int check_root() {
   if (geteuid() != 0) {
     printf("--uninstall needs to be run as root please use sudo/doas\n");
-    exit(1);
+    return 1;
   } else {
     printf("Running as root, uninstalling %s", get_process_name());
-    printf("%s", uninstall_file);
   }
+
+  return 0;
+}
+
+int uninstall_me(const char *uninstall_file) {
+  const char *uninstall_files[1] = {uninstall_file};
+
+  if (!open_file(uninstall_file)) {
+    return 1;
+  }
+
+  if (!uninstall(uninstall_files, sizeof(uninstall_files))) {
+    return 1;
+  }
+
+  return 0;
 }
 
 void uninstall_them(const char *uninstall_file[], size_t size) {

@@ -16,19 +16,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-use uninstall_me::*;
+#include "../src/include/uninstall-me.h"
+// #include <stdio.h>
 
-mod common;
+int main(int argc, char *argv[]) {
+  const char *file = "example";
+  uninstall_me(file);
 
-#[test]
-fn basic() {
-    common::setup();
-
-    // Getting the process name
-    println!("Printing the current process name");
-    println!("process_name: {}", get_process_name());
-
-    // Pass one file into uninstall_me() directly
-    println!("Passing uninstall file into uninstall_me()");
-    uninstall_me("example.txt".to_string());
+  return 0;
 }

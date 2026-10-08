@@ -16,12 +16,23 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "uninstall-me.h"
+// #include "include/uninstall-me.h"
+#include "local.h"
+#include <stddef.h>
 #include <stdio.h>
 // #include <stdlib.h>
 
+int uninstall(const char *file_names[], size_t length) {
+
+  for (size_t i = 0; i < length; i++) {
+    printf("uninstalling files: %s\n", file_names[i]);
+  }
+
+  return 0;
+}
+
 int open_file(const char *file_name) {
-  printf("file: %s\n", file_name);
+  printf("reading file: %s\n", file_name);
 
   FILE *fptr;
   fptr = fopen(file_name, "r");

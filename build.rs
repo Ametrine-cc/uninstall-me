@@ -7,7 +7,7 @@ fn main() {
 
     cc::Build::new()
         .file("src/uninstall-me.c")
-        // .file("src/open.c")
+        .file("src/open.c")
         .include("src/include")
         .out_dir(&out_dir)
         .compile("uninstall-me");

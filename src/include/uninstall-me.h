@@ -25,10 +25,10 @@
 // Defined buffer size
 #define MAX_BUFFER_SIZE 2048
 
-void uninstall_me(const char *uninstall_file);
-void uninstall_them(const char *uninstall_file[], size_t size);
-
 char *get_process_name();
-// int open_file(const char *file_name);
+int check_root();
+
+int uninstall_me(const char *uninstall_file);
+void uninstall_them(const char *uninstall_file[], size_t size);
 
 #endif // UNINSTALL_ME_H

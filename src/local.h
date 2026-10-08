@@ -1,3 +1,4 @@
+
 /*
  * uninstall-me: uninstalling apps with --uninstall made easy
  * Copyright (C) 2026 Ametine Foundation
@@ -16,20 +17,12 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-use uninstall_me::*;
+#ifndef LOCAL_H
+#define LOCAL_H
 
-mod common;
+#include <stddef.h>
 
-#[test]
-fn multiple() {
-    common::setup();
+int uninstall(const char *file_name[], size_t length);
+int open_file(const char *file_name);
 
-    // Getting the process name
-    println!("Printing the current process name");
-    println!("process_name: {}", get_process_name());
-
-    // Pass files to be uninstalled into uninstall_them()
-    // instead of one file into uninstall_me()
-    let uninstall_files: Vec<String> = vec![String::from("example.txt")];
-    uninstall_them(&uninstall_files);
-}
+#endif // LOCAL_H

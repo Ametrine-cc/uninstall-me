@@ -69,8 +69,17 @@ int uninstall_me(const char *uninstall_file) {
   return 0;
 }
 
-void uninstall_them(const char *uninstall_file[], size_t size) {
+int uninstall_them(const char *uninstall_files[]) {
+  size_t size = 0;
+
   for (size_t i = 0; i < size; i++) {
-    printf("file: %s", uninstall_file[i]);
+    size += sizeof(uninstall_files[i]);
+    printf("file: %s", uninstall_files[i]);
   }
+
+  if (!uninstall(uninstall_files, size)) {
+    return 1;
+  }
+
+  return 0;
 }

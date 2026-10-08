@@ -22,6 +22,9 @@
 
 #include <stddef.h>
 
+// Defined buffer size
+#define MAX_BUFFER_SIZE 2048
+
 int uninstall(const char *file_name[], size_t length);
 int open_file(const char *file_name);
 

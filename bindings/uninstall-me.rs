@@ -66,10 +66,15 @@ pub fn uninstall_them(uninstall_files: &[String]) {
 
     let mut c_char_ptrs: Vec<*const c_char> = c_strings.iter().map(|cs| cs.as_ptr()).collect();
 
-    let size = c_char_ptrs.len();
     let ptr_to_array = c_char_ptrs.as_mut_ptr();
 
     unsafe {
-        sys::uninstall_them(ptr_to_array, size);
+        if sys::check_root() == 1 {
+            exit(1)
+        }
+
+        if sys::uninstall_them(ptr_to_array) == 1 {
+            exit(1)
+        }
     }
 }

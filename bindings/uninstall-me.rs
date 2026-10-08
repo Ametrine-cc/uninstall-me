@@ -48,9 +48,9 @@ pub fn uninstall_me(uninstall_file: String) {
     let ptr: *const std::ffi::c_char = c_text.as_ptr();
 
     unsafe {
-        // if sys::check_root() == 1 {
-        // exit(1)
-        // }
+        if sys::check_root() == 1 {
+            exit(1)
+        }
 
         if sys::uninstall_me(ptr) == 1 {
             exit(1)
